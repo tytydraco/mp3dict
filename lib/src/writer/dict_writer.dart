@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+/// Encode a key-pair of [definitions] to dictionary files.
 Future<void> dictWriter(Map<String, String> definitions) async {
   // dict.txt
   final dictTxtBytesBuilder = BytesBuilder();
@@ -48,4 +49,8 @@ Future<void> dictWriter(Map<String, String> definitions) async {
 
   final dictIdFile = File('dict.id');
   await dictIdFile.writeAsBytes(dictIdBytesBuilder.takeBytes());
+
+  // dict.pcm
+  final dictPcmFile = File('dict.pcm');
+  await dictPcmFile.writeAsBytes([]);
 }
